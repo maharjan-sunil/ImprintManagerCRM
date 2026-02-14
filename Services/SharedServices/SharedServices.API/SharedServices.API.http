@@ -1,0 +1,6 @@
+@SharedServices.API_HostAddress = http://localhost:5027
+
+GET {{SharedServices.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
