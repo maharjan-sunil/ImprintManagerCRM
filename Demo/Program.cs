@@ -9,8 +9,8 @@ using Ocelot.Middleware;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add Ocelot configuration
-builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
-builder.Services.AddOcelot(builder.Configuration);
+//builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
+//builder.Services.AddOcelot(builder.Configuration);
 
 
 //builder.Services.AddControllers();
@@ -50,7 +50,7 @@ app.MapControllerRoute(
 
 
 // Use Ocelot middleware
-await app.UseOcelot();
+//await app.UseOcelot();
 
 
 app.Run();
