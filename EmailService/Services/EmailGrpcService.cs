@@ -53,10 +53,5 @@ namespace EmailService.Services
                 Error = error ?? string.Empty
             };
         }
-
-        public override async Task<bool> CallFromDemo()
-        {
-            return await _sender.CallFromDemo();
-        }
     }
 }

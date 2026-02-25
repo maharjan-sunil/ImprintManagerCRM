@@ -20,7 +20,5 @@
             string to,
             string? subjectOverride,
             CancellationToken ct);
-
-        Task<bool> CallFromDemo();
     }
 }

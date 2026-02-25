@@ -106,10 +106,5 @@ namespace EmailService.Services
 
             return await SendAsync(null, new[] { to }, null, null, subject, htmlBody, null, null, null, ct);
         }
-
-        public async Task<bool> CallFromDemo()
-        {
-            return await Task.FromResult(true);
-        }
     }
 }
