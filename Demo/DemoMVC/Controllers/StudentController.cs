@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Demo.DemoMVC.IService;
+using Demo.DemoMVC.Service;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Demo.DemoMVC.Controllers
 {
@@ -8,8 +10,10 @@ namespace Demo.DemoMVC.Controllers
         /*ControllerBase doesnot have view
          * only used for api since it doesn't need View
          * */
-
-        public StudentController() { }
+        private readonly IStudentService studentService;
+        public StudentController(IStudentService _studentService) {
+            studentService = _studentService;
+        }
         public IActionResult Index()
         {
             return View();
@@ -17,6 +21,7 @@ namespace Demo.DemoMVC.Controllers
 
         public IActionResult About()
         {
+            studentService.GetAllAsync();
             return View();
         }
     }

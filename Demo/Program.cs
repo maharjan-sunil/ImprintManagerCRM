@@ -1,3 +1,8 @@
+﻿using Demo.DemoMVC.IService;
+using Demo.DemoMVC.Service;
+using Demo.HubR;
+using Demo.HubR.Interface;
+using Demo.HubR.Service;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
@@ -28,7 +33,30 @@ JSON serialization,Validation, Filters, API behavior, IActionResult execution, A
 Hire Chef and kitchen setup
 */
 
+//AddScoped → Creates one instance per HTTP request and reuses it throughout that request.
+
+//AddTransient → Creates a new instance every time it is requested.
+
+//AddSingleton → Creates one single instance for the entire application lifetime and shares it with
+
+//ASP.NET Core creates it for you automatically using the built-in DI container.
+
+builder.Services.AddSignalR();
+builder.Services.AddScoped<IStudentService, StudentService>();
+builder.Services.AddScoped<INotificationService, SignalRNotificationService>();
+
+//builder.Services.AddHostedService<SignalRNotificationService>();
+
 var app = builder.Build();
+
+
+// Configuration for SignalR
+
+
+
+app.MapHub<NotificationHub>("/notifications");
+
+
 
 //Since MVC need static files (CSS, JS, Images)
 app.UseStaticFiles();
@@ -51,6 +79,8 @@ app.MapControllerRoute(
 
 // Use Ocelot middleware
 //await app.UseOcelot();
+
+
 
 
 app.Run();
