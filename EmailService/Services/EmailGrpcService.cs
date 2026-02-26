@@ -54,9 +54,9 @@ namespace EmailService.Services
             };
         }
 
-        public override async Task<bool> CallFromDemo()
-        {
-            return await _sender.CallFromDemo();
-        }
+        //public override async Task<bool> CallFromDemo()
+        //{
+        //    return await _sender.CallFromDemo();
+        //}
     }
 }
